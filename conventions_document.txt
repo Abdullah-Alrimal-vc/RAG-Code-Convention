@@ -1,0 +1,250 @@
+[RULE_ID: naming_variables]
+[CATEGORY: naming]
+[SEVERITY: error | warning | suggestion]
+
+CONVENTION:
+Use camelCase for all variable names.
+
+CORRECT:
+userName = "John"
+totalCount = 0
+
+INCORRECT:
+user_name = "John"
+total_count = 0
+
+REASON:
+Maintains consistency across the codebase and follows Google Java Style.
+----------------------------------------------
+[RULE_ID: naming_classes]
+[CATEGORY: naming]
+[SEVERITY: error | warning | suggestion]
+
+CONVENTION:
+Use CamelCase for all class names.
+
+CORRECT:
+public class ClassName
+class OtherClassName
+
+INCORRECT:
+public class Class_Name
+class Other_Class_Name
+
+REASON:
+Maintains consistency across the codebase and follows Google Java Style.
+----------------------------------------------
+[RULE_ID: naming_interfaces]
+[CATEGORY: naming]
+[SEVERITY: error | warning | suggestion]
+
+CONVENTION:
+Use CamelCase for all interface names.
+
+CORRECT:
+public interface InterfaceName
+interface OtherInterfaceName
+
+INCORRECT:
+public class Interface_Name
+class Other_Interface_Name
+
+REASON:
+Maintains consistency across the codebase and follows Google Java Style.
+----------------------------------------------
+[RULE_ID: method_naming]
+[CATEGORY: naming]
+[SEVERITY: warning]
+
+CONVENTION:
+User Use CamelCase for all method names.
+
+CORRECT:
+public void addResource() {
+    //...
+}
+
+INCORRECT:
+public void add_resource{
+    //...
+}
+
+REASON:
+Maintains consistency across the codebase and follows Google Java Style.
+----------------------------------------------
+[RULE_ID: controller_naming]
+[CATEGORY: class_definition]
+[SEVERITY: error | warning]
+
+CONVENTION:
+Controller class must:
+1. End with "Contorller"
+2. @Controller annotation must be used
+
+CORRECT:
+@Controller
+public class UserController{
+    //...
+}
+
+INCORRECT:
+//Missing annotation
+public class UserController{
+    //...
+}
+
+//Wrong naming
+@Controller
+public class User{
+    //...
+}
+
+REASON:
+Ensures Spring framework recognizes controllers and maintains naming consistency.
+----------------------------------------------
+[RULE_ID: service_naming]
+[CATEGORY: interface_definition]
+[SEVERITY: error | warning]
+
+CONVENTION:
+Service interface must:
+End with "Service"
+
+CORRECT:
+public interface UserService{
+    //...
+}
+
+INCORRECT:
+//Wrong naming
+public class User{
+    //...
+}
+
+REASON:
+Ensures Spring framework recognizes controllers and maintains naming consistency.
+----------------------------------------------
+[RULE_ID: service_impl_naming]
+[CATEGORY: class_definition]
+[SEVERITY: error | warning]
+
+CONVENTION:
+Service class must:
+1. End with "ServiceImpl"
+2. @Service annotation must be used
+3. Implements an interface having the same name without "Impl"
+
+CORRECT:
+@Service
+public class UserServiceImpl{
+    //...
+}
+
+INCORRECT:
+//Missing annotation
+public class UserServiceImpl{
+    //...
+}
+
+//Wrong naming
+@Service
+public class User{
+    //...
+}
+
+REASON:
+Ensures Spring framework recognizes controllers and maintains naming consistency.
+----------------------------------------------
+[RULE_ID: repository_naming]
+[CATEGORY: interface_definition]
+[SEVERITY: error | warning]
+
+CONVENTION:
+Service interface must:
+End with "Repository"
+
+CORRECT:
+public interface UserRepository{
+    //...
+}
+
+INCORRECT:
+public class User{
+    //...
+}
+
+REASON:
+Ensures Spring framework recognizes controllers and maintains naming consistency.
+----------------------------------------------
+[RULE_ID: repository_impl_naming]
+[CATEGORY: class_definition]
+[SEVERITY: error | warning]
+
+CONVENTION:
+Service class must:
+1. End with "RepositoryImpl"
+2. @Repository annotation must be used
+
+CORRECT:
+@Repository
+public class UserRepositoryImpl{
+    //...
+}
+
+INCORRECT:
+//Missing annotation
+public class UserRepositoryImpl{
+    //...
+}
+
+//Wrong naming
+@Repository
+public class User{
+    //...
+}
+
+REASON:
+Ensures Spring framework recognizes controllers and maintains naming consistency.
+----------------------------------------------
+[RULE_ID: cglib]
+[CATEGORY: proxy_definition]
+[SEVERITY: error | warning | suggestion]
+
+CONVENTION:
+1. service classes must implement service interface having the same name
+2. repository classes must implement repository interface having the same name 
+
+CORRECT:
+1. public interface UserService{
+    //...
+}
+@service
+public class UserServiceImpl implements UserService{
+    //...
+}
+
+2. public interface UserRepository{
+    //...
+}
+@Repository
+public class UserRepositoryImpl implements UserRepository{
+    //...
+}
+
+
+INCORRECT:
+1. public interface EmployeeService{
+    //...
+}
+@Service
+public class UserServiceImpl implements EmployeeService{
+    //...
+}
+
+2. public interface EmployeeRepositroy {
+    //...
+}
+@Repository
+public class UserRepositoryImpl implements EmployeeRepositroy {
+    //...
+}
